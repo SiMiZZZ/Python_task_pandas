@@ -16,10 +16,13 @@ def make_salary_by_profession(df, profession_name):
         .mean().to_dict()['salary']
     return dict(sorted(data_dict.items()))
 
+
 def make_quantity_by_profession(df, profession_name):
     data_dict =  df[df['name'].str.contains(profession_name)]\
         .published_at.value_counts().to_dict()
     return dict(sorted(data_dict.items()))
+
+
 def create_pdf(text):
     pdf = FPDF()
     pdf.add_page()
